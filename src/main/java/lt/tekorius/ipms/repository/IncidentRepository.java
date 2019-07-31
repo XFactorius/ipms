@@ -3,7 +3,10 @@ package lt.tekorius.ipms.repository;
 import lt.tekorius.ipms.model.Incident;
 import org.springframework.stereotype.Repository;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Repository
 public class IncidentRepository {
@@ -13,8 +16,8 @@ public class IncidentRepository {
         incidents.put(incident.getName(), incident);
     }
 
-    public void get(String name) {
-        incidents.get(name);
+    public Incident get(String name) {
+        return incidents.get(name);
     }
 
     public List<Incident> findAll() {
