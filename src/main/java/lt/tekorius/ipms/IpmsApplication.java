@@ -3,7 +3,7 @@ package lt.tekorius.ipms;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApxplication
+@SpringBootApplication
 public class IpmsApplication {
 
 	public static void main(String[] args) {
