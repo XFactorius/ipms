@@ -20,14 +20,8 @@ public class IncidentController {
         return incidentService.findAll();
     }
 
-    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public void addIncident(@RequestBody Incident incident) {
         incidentService.add(incident);
     }
-
-    @GetMapping(value = "/{name}")
-    public Incident getIncidentByName(@PathVariable String name) {
-        return incidentService.getByName(name);
-    }
-
 }
