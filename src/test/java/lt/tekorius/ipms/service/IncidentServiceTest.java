@@ -29,14 +29,21 @@ public class IncidentServiceTest {
 
     @Test
     public void findsAll() {
+        Incident incident = createIncident();
         Mockito.when(incidentRepository.findAll())
-                .thenReturn(Collections.singletonList(new Incident(INCIDENT_NAME,
-                        INCIDENT_DATE)));
+                .thenReturn(Collections.singletonList(incident));
         List<Incident> result = incidentService.findAll();
 
         assertThat(result.size(), Matchers.is(1));
         assertThat(getIncident(result).getName(), Matchers.is(INCIDENT_NAME));
         assertThat(getIncident(result).getStartDate(), Matchers.is(INCIDENT_DATE));
+    }
+
+    private Incident createIncident() {
+        Incident incident = new Incident();
+        incident.setName(INCIDENT_NAME);
+        incident.setStartDate(INCIDENT_DATE);
+        return incident;
     }
 
     private Incident getIncident(List<Incident> result) {
@@ -45,7 +52,8 @@ public class IncidentServiceTest {
 
     @Test
     public void add() {
-        Incident incident = new Incident(INCIDENT_NAME, INCIDENT_DATE);
+        Incident incident = createIncident();
+
         incidentService.add(incident);
 
         Mockito.verify(incidentRepository).insert(incident);
