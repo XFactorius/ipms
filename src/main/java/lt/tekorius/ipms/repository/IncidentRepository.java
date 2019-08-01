@@ -16,10 +16,6 @@ public class IncidentRepository {
         incidents.put(incident.getName(), incident);
     }
 
-    public Incident get(String name) {
-        return incidents.get(name);
-    }
-
     public List<Incident> findAll() {
         return new ArrayList<Incident>(incidents.values());
     }
